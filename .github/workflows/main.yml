@@ -3,18 +3,15 @@ on:
     types: [labeled]
 
 jobs:
-  needs_crash_report_job:
+  needs-crash-report:
+    name: This job keeps an eye on crash reports without a link to Sentry.
     runs-on: ubuntu-latest
-    name: A job to add the needs-crash-report label
     steps:
-      - name: Hello world action step
-        id: needs_crash_report
+      - id: needs_crash_report
         uses: st3fan/needs-crash-report-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           crash-label: "crash"
           needs-crash-report-label: "needs-crash-report"
-          crash-reporter: "https://sentry.io/projects/foobar"
-      - name: Get the output message
-        run: echo "The message is ${{ steps.needs_crash_report.outputs.message }}"
+          crash-reporter: "https://sentry.prod.mozaws.net/"
