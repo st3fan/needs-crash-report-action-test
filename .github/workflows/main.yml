@@ -1,0 +1,16 @@
+on: [label]
+
+jobs:
+  needs_crash_report_job:
+    runs-on: ubuntu-latest
+    name: A job to add the needs-crash-report label
+    steps:
+      - name: Hello world action step
+        id: needs_crash_report
+        uses: st3fan/needs-crash-report-action@v1
+        with:
+          crash-label: "crash"
+          needs-crash-report-label: "needs-crash-report"
+          crash-reporter: "https://sentry.io/projects/foobar"
+      - name: Get the output time
+        run: echo "The time was ${{ steps.needs_crash_report.outputs.time }}"
