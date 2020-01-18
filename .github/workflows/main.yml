@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: needs_crash_report
-        uses: st3fan/needs-crash-report-action
+        uses: st3fan/needs-crash-report-action@master
         with:
           crash-label: "crash"
           needs-crash-report-label: "needs-crash-report"
