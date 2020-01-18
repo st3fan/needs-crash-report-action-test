@@ -8,6 +8,8 @@ jobs:
       - name: Hello world action step
         id: needs_crash_report
         uses: st3fan/needs-crash-report-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           crash-label: "crash"
           needs-crash-report-label: "needs-crash-report"
