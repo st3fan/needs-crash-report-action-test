@@ -1,4 +1,6 @@
-on: [label]
+on:
+  issues:
+    types: [labeled]
 
 jobs:
   needs_crash_report_job:
